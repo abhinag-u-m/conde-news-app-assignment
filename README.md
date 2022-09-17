@@ -1,13 +1,17 @@
-In the project directory, you can run:
+### conde-news-app
 
-First we need to install the node_modules packages at root, client and server folder path --> 
-1) ./ 
-2) ./client
-3) ./server
+In the project directory :
+
+First we need to install the node_modules packages at root, client and server folder path : 
+### 1)  ./ 
+### 2)  ./client
+### 3)  ./server
+
+You can run below command to install node_modules packages.
 ### `npm install`
 
 
-You can run both client and server
+You can run below command to start both client and server.
 ### `npm start`
 
 Runs the app in the development mode.\
