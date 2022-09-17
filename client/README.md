@@ -1,19 +1,15 @@
+# Getting Started with Create React App
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Available Scripts
+
 In the project directory, you can run:
 
-First we need to install the node_modules packages at root, client and server folder path --> 
-1) ./ 
-2) ./client
-3) ./server
-### `npm install`
-
-
-You can run both client and server
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-Server will be running in the port 8000!
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
