@@ -9,9 +9,8 @@ import LoadingBar from "react-top-loading-bar";
 function App() {
   const [progress, setProgress] = useState(0);
   const pageSize = 7;
-  document.body.style.backgroundColor = "rgb(36, 39, 41)";
+  document.body.style.backgroundColor = "rgb(35 39 42)";
   const [queryValue, setQueryValue] = useState('');
-
   const searchHandler = (value) => {
     setQueryValue(value);
   }

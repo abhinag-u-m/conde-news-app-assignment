@@ -2,7 +2,6 @@ export const navbarBrand = "News";
 export const header = (category) => `Top ${category} Headlines`;
 export const navs = [
     { nav: "Home", page: "/" },
-    { nav: "General", page: "/general" },
     { nav: "Business", page: "/business" },
     { nav: "Science", page: "/science" },
     { nav: "Sports", page: "/sports" },
@@ -13,7 +12,6 @@ export const navs = [
 
 export const router = [
     { path: "/", key: "general", category: "general", country: "us" },
-    { path: "/general", key: "general", category: "general", country: "us" },
     { path: "/business", key: "business", category: "business", country: "us" },
     { path: "/sports", key: "sports", category: "sports", country: "us" },
     { path: "/science", key: "science", category: "science", country: "us" },

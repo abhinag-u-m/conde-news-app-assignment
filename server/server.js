@@ -37,12 +37,13 @@ app.get('/getTopHeadlines', (req, res) => {
 app.get('/getTopHeadlinesOnCategory', (req, res) => {
     const userAgent = req.get('user-agent');
     const API_KEY = req.query.apiKey;
+    const country = req.query.country;
     const category = req.query.category;
     const page =  req.query.page;
     const pageSize = req.query.pageSize;
     const options = {
         host: 'newsapi.org',
-        path: `/v2/top-headlines?&category=${category}&apiKey=${API_KEY}&page=${page}&pageSize=${pageSize}&country=us`,
+        path: `/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}&page=${page}&pageSize=${pageSize}`,
         headers: {
             'User-Agent': userAgent
         }
@@ -67,13 +68,14 @@ app.get('/getTopHeadlinesOnCategory', (req, res) => {
 app.get('/getTopHeadlinesOnSearchQuery', (req, res) => {
     const userAgent = req.get('user-agent');
     const API_KEY = req.query.apiKey;
+    const country = req.query.country;
     const category = req.query.category;
     const page =  req.query.page;
     const pageSize = req.query.pageSize;
     const query = req.query.queryValue;
     const options = {
         host: 'newsapi.org',
-        path: `/v2/top-headlines?&category=${category}&apiKey=${API_KEY}&page=${page}&pageSize=${pageSize}&q=${query}&country=us`,
+        path: `/v2/top-headlines?country=${country}&category=${category}&apiKey=${API_KEY}&page=${page}&pageSize=${pageSize}&q=${query}`,
         headers: {
             'User-Agent': userAgent
         }
@@ -102,7 +104,7 @@ app.get('/everything', (req, res) => {
     console.log('params.',params);
     const options = {
         host: 'newsapi.org',
-        path: `/v2/everything?q=${searchQuery}?&apiKey=${API_KEY}`,
+        path: `/v2/everything?q=${searchQuery}&apiKey=${API_KEY}`,
         headers: {
             'User-Agent': userAgent,
         }
