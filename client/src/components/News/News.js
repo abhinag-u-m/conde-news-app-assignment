@@ -5,9 +5,10 @@ import Skeleton from "../Skeleton/Skeleton";
 import Spinner from "../Spinner/Spinner";
 import PropTypes from "prop-types";
 import InfiniteScroll from "react-infinite-scroll-component";
+import Alert from '@mui/material/Alert';
 import Nullimage from "../../components/Images/nullimage.png";
 import { Row, Col } from "react-bootstrap";
-import { Header, Container, card } from "./index";
+import { Header, Container, card, NoDataContainer, NoData } from "./index";
 import { header } from "../../config/config";
 import { API_KEY } from '../../config/config';
 
@@ -116,7 +117,7 @@ function News(props) {
         {header(capitaLize(props.category))}
       </Header>
       {loading && <Skeleton />}
-      <InfiniteScroll
+      {articles && articles.length > 0 ? (<InfiniteScroll
         dataLength={articles.length}
         next={fetchMoreData}
         hasMore={articles.length !== totalResults}
@@ -154,7 +155,15 @@ function News(props) {
             })}
           </Row>
         </Container>
-      </InfiniteScroll>
+      </InfiniteScroll>) : (
+        <React.Fragment>
+          <NoDataContainer>
+            <NoData>
+              <Alert severity="info">No Articles Found for above query</Alert>
+            </NoData>
+          </NoDataContainer>
+        </React.Fragment>
+      )}
     </>
   );
 }

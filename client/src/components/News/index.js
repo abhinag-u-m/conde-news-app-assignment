@@ -19,3 +19,14 @@ export const card = {
     marginTop: "10px",
     marginBottom: "50px"
 }
+
+
+export const NoDataContainer = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: center;
+`
+
+export const NoData = styled.div`
+    width: 16%;
+`
