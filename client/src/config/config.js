@@ -25,4 +25,4 @@ export const author = (author) => `Author: ${!author ? "Unknown" : author}`;
 export const channel = (channel) => `Channel: ${channel}`;
 export const lastUpdate = (date) => `Last updated: ${new Date(date).toGMTString()}`;
 
-export const API_KEY = "71823bb2691345a388e038f2eab8acaf";
+export const API_KEY = "4873417b768e40418a2038a476c34ae2";

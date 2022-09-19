@@ -11,13 +11,13 @@ You can run below command to install node_modules packages.
 ### `npm install`
 
 
-You can run below command to start both client and server.
+Once node_modules packages are installed, You can run below command to start both client and server at the root level --> conde-news-app-assignment/.
 ### `npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-Server will be running in the port 8000!
+Server will be running in the port 8000.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
