@@ -30,3 +30,7 @@ export const NoDataContainer = styled.div`
 export const NoData = styled.div`
     width: 16%;
 `
+
+export const ServerError = styled.div`
+    width: 86%;
+`

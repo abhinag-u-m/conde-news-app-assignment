@@ -8,7 +8,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Alert from '@mui/material/Alert';
 import Nullimage from "../../components/Images/nullimage.png";
 import { Row, Col } from "react-bootstrap";
-import { Header, Container, card, NoDataContainer, NoData } from "./index";
+import { Header, Container, card, NoDataContainer, NoData, ServerError } from "./index";
 import { header } from "../../config/config";
 import { API_KEY } from '../../config/config';
 
@@ -19,6 +19,7 @@ function News(props) {
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(true);
   const [totalResults, setTotalResults] = useState(0);
+  const [serverError, setServerError] = useState('');
 
   const capitaLize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
@@ -40,6 +41,10 @@ function News(props) {
       setLoading(true);
       props.setProgress(70);
       const parsedData = response.data;
+      if(parsedData && parsedData.status === 'error' && parsedData.code === 'rateLimited') {
+        let error = parsedData && parsedData.message.length > 0 && parsedData.message;
+        setServerError(error);
+      }
       setArticles(parsedData.articles);
       setTotalResults(parsedData.totalResults);
       setLoading(false);
@@ -67,6 +72,10 @@ function News(props) {
     )
     setPage(page + 1);
     const parsedData = response.data;
+    if(parsedData && parsedData.status === 'error' && parsedData.code === 'rateLimited') {
+      let error = parsedData && parsedData.message.length > 0 && parsedData.message;
+      setServerError(error);
+    }
     setArticles(articles.concat(parsedData.articles));
     setTotalResults(parsedData.totalResults);
   };
@@ -88,6 +97,10 @@ function News(props) {
         setLoading(true);
         props.setProgress(70);
         const parsedData = response.data;
+        if(parsedData && parsedData.status === 'error' && parsedData.code === 'rateLimited') {
+          let error = parsedData && parsedData.message.length > 0 && parsedData.message;
+          setServerError(error);
+        }
         setArticles(parsedData.articles);
         setTotalResults(parsedData.totalResults);
         setLoading(false);
@@ -155,7 +168,15 @@ function News(props) {
             })}
           </Row>
         </Container>
-      </InfiniteScroll>) : (
+      </InfiniteScroll>) : serverError && serverError.length > 0 ? (
+        <React.Fragment>
+          <NoDataContainer>
+            <ServerError>
+              <Alert severity="error">{serverError}</Alert>
+            </ServerError>
+          </NoDataContainer>
+        </React.Fragment>
+      ) : (
         <React.Fragment>
           <NoDataContainer>
             <NoData>
